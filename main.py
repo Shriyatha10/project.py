@@ -316,8 +316,3 @@ num_tickets = input("Enter the number of tickets: ")
 bms.book_ticket(city, int(movie_ind), int(num_tickets))
 
 bms.display_bookings(city, int(movie_ind))
-
-
-# Display seat map
-Movie.display_seat_map()
-
