@@ -147,4 +147,123 @@ class CinemaConnect:
         movie = filtered_movies[movie_index - 1]
         print(f"Bookings for {movie.title} ({movie.timing}) - {movie.theater.name} ({movie.theater.city}):")
         movie.display_seat_map()
+    @staticmethod
+    def validate_mobile_number(self, mobile_number):
+        pattern = r"^[6-9]\d{9}$"
+        return re.match(pattern, mobile_number) is not None
+    @staticmethod
+    def validate_email(self, email):
+        pattern = r"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+        return re.match(pattern, email) is not None
+
+    def process_payment(self, payment_option, total_cost, movie, customer_name, email, mobile_number):
+
+        if payment_option == 1: # Credit Card
+            credit_card_number = input("Enter your credit card number: ")
+            name_on_card = input("Enter the name on the card: ")
+            expiry_date = input("Enter expiry date (MM/YY): ")
+            cvv = input("Enter the CVV: ")
+            if len(credit_card_number) != 16 or not re.match(r"^\d+$", credit_card_number):
+                print("Invalid credit card number. Please enter a valid 16-digit card number.")
+                return
+
+            if not re.match(r"^(0[1-9]|1[0-2])\/\d{2}$", expiry_date):
+                print("Invalid expiry date. Please enter a valid date in MM/YY format.")
+                return
+
+            if len(cvv) != 3 or not re.match(r"^\d+$", cvv):
+                print("Invalid CVV. Please enter a valid 3-digit CVV.")
+                return
+
+            print("Processing credit card payment...(3)")
+            time.sleep(1)
+            print("Processing credit card payment...(2)")
+            time.sleep(1)
+            print("Processing credit card payment...(1)")
+        # Add payment gateway integration logic here
+            print(f"Payment of INR {total_cost} processed successfully.")
+
+            print("\nReceipt:")
+            movie.display_details()
+            print(f"Movie: {movie.title}")
+            print(f"Theater: {movie.theater.name} ({movie.theater.city})")
+            print(f"Date: {movie.date}")
+            print(f"Day: {movie.day}")
+            print(f"Timing: {movie.timing}")
+            print(f"Name of the Customer: {customer_name}")
+            print(f"Mobile Number of the Customer: {mobile_number}")
+            print(f"Email address of the Customer : {email}")
+
+        elif payment_option == 2:  # Debit Card
+            debit_card_number = input("Enter debit card number: ")
+            expiry_date = input("Enter expiry date (MM/YY): ")
+            cvv = input("Enter CVV: ")
+
+            if len(debit_card_number) != 16 or not re.match(r"^\d+$", debit_card_number):
+                print("Invalid debit card number. Please enter a valid 16-digit card number.")
+                return
+
+            if not re.match(r"^(0[1-9]|1[0-2])\/\d{2}$", expiry_date):
+                print("Invalid expiry date. Please enter a valid date in MM/YY format.")
+                return
+
+            if len(cvv) != 3 or not re.match(r"^\d+$", cvv):
+                print("Invalid CVV. Please enter a valid 3-digit CVV.")
+                return
+
+            print("Processing debit card payment...(3)")
+            time.sleep(1)
+            print("Processing debit card payment...(2)")
+            time.sleep(1)
+            print("Processing debit card payment...(1)")
+        # Add payment gateway integration logic here
+            print(f"Payment of INR {total_cost} processed successfully.")
+
+            print("\nReceipt:")
+            movie.display_details()
+            print(f"Movie: {movie.title}")
+            print(f"Theater: {movie.theater.name} ({movie.theater.city})")
+            print(f"Date: {movie.date}")
+            print(f"Day: {movie.day}")
+            print(f"Timing: {movie.timing}")
+            print(f"Name of the Customer: {customer_name}")
+            print(f"Mobile Number of the Customer: {mobile_number}")
+            print(f"Email address of the Customer : {email}")
+            # Process debit card details
+          
+        elif payment_option == 3:
+            paytm_number = input("Enter your Paytm mobile number: ")
+            OTP = input("Enter the 6-digit OTP: ")
+            if not re.match(r"^[6-9]\d{9}$", paytm_number):
+                print("Invalid UPI mobile number. Please enter a valid UPI mobile number.")
+                return
+
+            if len(OTP) != 6 or not re.match(r"^\d+$", OTP):
+                print("Invalid OTP. Please check again.")
+                return
+
+            print("Processing debit card payment...(3)")
+            time.sleep(1)
+            print("Processing debit card payment...(2)")
+            time.sleep(1)
+            print("Processing debit card payment...(1)")
+            # Add payment gateway integration logic here
+            print(f"Payment of INR {total_cost} processed successfully.")
+
+            print("\nReceipt:")
+            movie.display_details()
+            print(f"Movie: {movie.title}")
+            print(f"Theater: {movie.theater.name} ({movie.theater.city})")
+            print(f"Date: {movie.date}")
+            print(f"Day: {movie.day}")
+            print(f"Timing: {movie.timing}")
+            print(f"Name of the Customer: {customer_name}")
+            print(f"Mobile Number of the Customer: {mobile_number}")
+            print(f"Email address of the Customer : {email}")
+
+        else:         
+            print("Invalid payment option. Please select a valid payment option.")
+            return
     
+   
+
