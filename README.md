@@ -16,7 +16,7 @@ We have imported libraries like re , time , sys .Used class like Movie , payment
 
 Shriyatha- Proposed the idea of making this movie ticket booking system. Coded for Class CinemaConnect , functions, etc . Implemented on the errors .
 
-Ananya - Done coding for the payment process of the system for booking tickets . In making of report Done repository on read.me file.
+Ananya - Done coding for the payment process of the system for booking tickets . In making of report Done repository on README.md file.
 
 Sathwika - Done coding by giving options for the whole code by adding attributes. In making of report.
 
