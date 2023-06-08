@@ -354,7 +354,35 @@ CC.add_movie(movie29)
 CC.add_movie(movie30)
 
 CC.display_cities()
-
+def is_valid_city(city):
+    valid_cities = ['Delhi','Mumbai','Banglore','Hyderabad','Palakkad']
     
-   
+    if city in valid_cities:
+        return True
+    else:
+        return False
 
+# Check if the city is valid
+while True:
+  city = input("Enter city: ")
+  if is_valid_city(city):
+    CC.display_movies(city)
+    break
+  else:
+    print("Invalid city name.")
+    choice = input("Do you want to try again? (yes/no): ")
+    if choice.lower() != 'yes':
+      print("Thank You for using Cinema Connect")
+      break
+
+movie_index = int(input("Enter the movie index: "))
+num_tickets = int(input("Enter the number of tickets:(Theatre consists of 20 rows and in each row 25 seats are fixed.) "))
+row = []
+seat = []
+for i in range(num_tickets):
+    row.append(int(input(f"Enter the row for ticket {i+1}: ")))
+    seat.append(int(input(f"Enter the seat for ticket {i+1}: ")))
+
+CC.book_ticket(city, movie_index, num_tickets, row, seat)
+
+CC.display_bookings(city, movie_index)
